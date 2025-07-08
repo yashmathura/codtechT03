@@ -1,0 +1,29 @@
+#define PIR_PIN 7      // PIR sensor DOUT connected to Digital Pin 7
+#define LED_PIN 13     // Built-in LED for alert
+
+bool motionDetected = false;
+
+void setup() {
+  Serial.begin(9600);             // Start Serial Monitor
+  pinMode(PIR_PIN, INPUT);        // PIR input
+  pinMode(LED_PIN, OUTPUT);       // LED output
+  Serial.println("🏠 Motion Security System Initialized...");
+}
+
+void loop() {
+  int pirValue = digitalRead(PIR_PIN);  // Read PIR sensor state
+
+  if (pirValue == HIGH && !motionDetected) {
+    motionDetected = true;
+    digitalWrite(LED_PIN, HIGH);      // Turn ON LED
+    Serial.println("🚨 Motion Detected!");
+    Serial.println("📸 Simulating Image Capture...");
+    delay(2000); // Simulate time taken to "capture image"
+  } 
+  else if (pirValue == LOW && motionDetected) {
+    motionDetected = false;
+    digitalWrite(LED_PIN, LOW);       // Turn OFF LED
+    Serial.println("✅ Area Clear");
+    delay(500); // Wait a bit before next check
+  }
+}
