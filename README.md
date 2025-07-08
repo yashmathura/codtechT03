@@ -1,4 +1,6 @@
 NAME - YASH KANT PANDEY COMPANY - CODTECH IT SOLUTIONS ID - CT04DH1866 DOMAIN - IoT DURATION - JULY TO AUGUST 2025
+
+
 Motion-Based Security System using Arduino
 A simple security system that detects motion using a PIR sensor, triggers an LED alert, and simulates image capture through the Serial Monitor.
 
